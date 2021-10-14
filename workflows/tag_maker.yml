@@ -1,0 +1,18 @@
+name: "Tag maker"
+on:
+  push:
+    branches: 
+    - develop
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.labels.*.name, 'production')
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+
+    - name: make tag
+      run: |
+        TAG_NAME="release-$(TZ=Asia/Tokyo date +%Y-%m-%d_%H%M)"
+        git tag $TAG_NAME
+        git push origin $TAG_NAME
