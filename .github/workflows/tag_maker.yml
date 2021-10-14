@@ -1,8 +1,9 @@
 name: "Tag maker"
 on:
-  push:
-    branches: 
-    - develop
+  pull_request:
+    branches:
+      - master
+    types: [closed]
 jobs:
   build:
     runs-on: ubuntu-latest
