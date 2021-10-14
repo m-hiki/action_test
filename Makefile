@@ -10,5 +10,5 @@ run:
 	git checkout $(DT)
 	echo $(DT) > test
 	git add .
-	git commit -m "update test"
+	git commit -m "$(DT)"
 	git push --set-upstream origin $(DT)
