@@ -1,12 +1,13 @@
 name: "Tag maker"
 on:
-  push:
-    branches: 
-    - develop
+  pull_request:
+    branches:
+      - develop 
+    types: [closed]
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: contains(github.event.pull_request.labels.*.name, 'production')
+    #if: contains(github.event.pull_request.labels.*.name, 'production')
     steps:
     - name: checkout
       uses: actions/checkout@v2
