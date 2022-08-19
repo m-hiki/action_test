@@ -9,5 +9,5 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true
     steps:
-    - name: Run echo
+      - name: Run echo
         run: echo ${{ github.event.pull_request.html_url }}
