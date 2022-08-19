@@ -1,0 +1,11 @@
+name: echo pr url
+on:
+  push:
+    branches: 
+    - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Run echo
+        run: echo ${{ github.event.pull_request.html_url }}
