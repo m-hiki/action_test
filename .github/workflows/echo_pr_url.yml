@@ -1,0 +1,13 @@
+name: "echo pr url"
+on:
+  pull_request:
+    branches:
+      - master
+    types: [closed]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+    steps:
+    - name: Run echo
+        run: echo ${{ github.event.pull_request.html_url }}
